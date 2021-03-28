@@ -22,11 +22,20 @@ function App() {
       reminder: false, 
     },
   ]);
+
+
+const deleteTask = (id) => {
+  setTasks(tasks.filter((task) => task.id !== id))
+}
+
+const changeReminder = (id) => {
+  console.log("hello")
+}
   return (
     <div className="container">
       <Header/>
-      <Tasks tasks = {tasks}/>
-    </div>
+      {tasks.length > 0? <Tasks tasks = {tasks} onDelete = {deleteTask} onDoubleClick = {changeReminder}/>: 'No Tasks :)'}
+    </div> 
   );
 }
 
